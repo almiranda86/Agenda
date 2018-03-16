@@ -1,0 +1,10 @@
+C:\Documentos\POCs\AgendaTelefonica\Agenda.Model\bin\Debug\Agenda.Model.dll
+C:\Documentos\POCs\AgendaTelefonica\Agenda.Model\bin\Debug\Agenda.Model.pdb
+C:\Documentos\POCs\AgendaTelefonica\Agenda.Model\obj\Debug\Agenda.Model.dll
+C:\Documentos\POCs\AgendaTelefonica\Agenda.Model\obj\Debug\Agenda.Model.pdb
+E:\Projetos\Agenda\Agenda.Model\bin\Debug\Agenda.Model.dll
+E:\Projetos\Agenda\Agenda.Model\bin\Debug\Agenda.Model.pdb
+E:\Projetos\Agenda\Agenda.Model\obj\Debug\Agenda.Model.csprojResolveAssemblyReference.cache
+E:\Projetos\Agenda\Agenda.Model\obj\Debug\Agenda.Model.csproj.CoreCompileInputs.cache
+E:\Projetos\Agenda\Agenda.Model\obj\Debug\Agenda.Model.dll
+E:\Projetos\Agenda\Agenda.Model\obj\Debug\Agenda.Model.pdb

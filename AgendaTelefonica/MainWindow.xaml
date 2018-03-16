@@ -1,0 +1,21 @@
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AgendaTelefonica"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="143.541" Width="228.612"
+        xmlns:Principal="clr-namespace:Agenda.ViewModel;assembly=Agenda.ViewModel"
+        x:Class="AgendaTelefonica.MainWindow">
+    <Window.DataContext>
+        <Principal:MainWindowViewModel/>
+    </Window.DataContext>
+    <Grid Margin="0,0,0,4">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="119*"/>
+            <RowDefinition Height="4*"/>
+        </Grid.RowDefinitions>
+        <Button Content="Pesquisar" HorizontalAlignment="Left" Margin="10,23,0,0" VerticalAlignment="Top" Width="96" Command="{Binding ClickPesquisar}" Height="30"/>
+        <Button Content="Novo Contato" HorizontalAlignment="Left" Margin="111,23,0,0" VerticalAlignment="Top" Width="92" Command="{Binding ClickNovo}" Height="30"/>
+    </Grid>
+</Window>

@@ -1,0 +1,101 @@
+﻿@model WebApplication1.Models.ContatoModel
+
+<style type="text/css">
+    input {
+        margin-left: 25px;
+    }
+
+    form {
+        margin-top: 50px;
+    }
+
+    #gridPesquisa{
+        margin-top:20px;
+        margin-left:7%;
+    }
+
+    #gridPesquisa>table>thead>tr>th{
+        padding:10px;
+    }
+</style>
+
+
+<form id="pesquisarContatoForm">
+    <div class="row">
+        <p>Filtros:</p>
+    </div>
+    <div class="row">
+        @Html.LabelFor(model => model.Nome)
+        @Html.TextBoxFor(model => model.Nome)
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            @Html.LabelFor(model => model.TelefonePessoal)
+            @Html.TextBoxFor(model => model.TelefonePessoal)
+        </div>
+
+        <div class="col-md-6">
+            @Html.LabelFor(model => model.TelefoneTrabalho)
+            @Html.TextBoxFor(model => model.TelefoneTrabalho)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            @Html.LabelFor(model => model.EmailPessoal)
+            @Html.TextBoxFor(model => model.EmailPessoal)
+        </div>
+        <div class="col-md-6">
+            @Html.LabelFor(model => model.EmailTrabalho)
+            @Html.TextBoxFor(model => model.EmailTrabalho)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <button type="button" id="pesquisarContato">Pesquisar</button>
+        </div>
+        <div class="col-md-6">
+            <button type="button" id="limparContatoPesquisa">Limpar</button>
+        </div>
+    </div>
+    <div class="row" id="gridPesquisa">
+
+    </div>
+</form>
+<script>
+    $(document).ready(function () {
+        $("#pesquisarContato").click(function () {
+
+            var obj = {
+                Nome: $("#Nome").val(),
+                EmailPessoal: $("#EmailPessoal").val(),
+                EmailTrabalho: $("#EmailTrabalho").val(),
+                TelefonePessoal: $("#TelefonePessoal").val(),
+                TelefoneTrabalho: $("#TelefoneTrabalho").val(),
+            }
+
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("ListarContatos", "Home")',
+                data: { contatoPesquisa: obj },
+                cache: false,
+                success: function (data) {
+                    $("#gridPesquisa").empty();
+                    $("#gridPesquisa").html(data);
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+
+                }
+            });
+        });
+
+
+        $("#limparContato").click(function () {
+            $("#Nome").val("");
+            $("#EmailPessoal").val("");
+            $("#EmailTrabalho").val("");
+            $("#TelefonePessoal").val("");
+            $("#TelefoneTrabalho").val("");
+        });
+    });
+
+</script>

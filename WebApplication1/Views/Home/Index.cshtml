@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<div class="jumbotron">
+    <h1>Agenda</h1>
+</div>
+
+<div class="row" style="text-align:center">
+    <div class="col-md-6">
+        <input type="button" value="Novo Contato" id="novoContato" />
+    </div>
+    <div class="col-md-6">
+        <input type="button" value="Listar Contato" id="listarContato" />
+    </div>
+</div>
+<div class="row" id="ContatoArea">
+
+</div>
+
+<script>
+
+    $(document).ready(function () {
+        $("#novoContato").click(function () {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("NovoContato", "Home")',
+                cache: false,
+                success: function (data) {
+                    $("#ContatoArea").empty();
+                    $("#ContatoArea").html(data);
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    
+                }
+            });
+        });
+
+        $("#listarContato").click(function () {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("ListaContatos", "Home")',
+                cache: false,
+                success: function (data) {
+                    $("#ContatoArea").empty();
+                    $("#ContatoArea").html(data);
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+
+                }
+            });
+        });
+
+    });
+
+
+</script>

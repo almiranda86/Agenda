@@ -1,0 +1,115 @@
+﻿@model WebApplication1.Models.ContatoModel
+<style type="text/css">
+    input {
+        margin-left: 25px;
+    }
+
+    form {
+        margin-top: 50px;
+    }
+</style>
+
+<form id="novoContatoForm">
+    <div class="row">
+        <p>
+            @Html.LabelFor(model => model.Nome)
+            @Html.TextBoxFor(model => model.Nome)
+        </p>
+        <p>
+            @Html.LabelFor(model => model.TelefonePessoal)
+            @Html.TextBoxFor(model => model.TelefonePessoal)
+        </p>
+        <p>
+            @Html.LabelFor(model => model.TelefoneTrabalho)
+            @Html.TextBoxFor(model => model.TelefoneTrabalho)
+        </p>
+        <p>
+            @Html.LabelFor(model => model.EmailPessoal)
+            @Html.TextBoxFor(model => model.EmailPessoal)
+        </p>
+        <p>
+            @Html.LabelFor(model => model.EmailTrabalho)
+            @Html.TextBoxFor(model => model.EmailTrabalho)
+        </p>
+        <p>
+            @Html.LabelFor(model => model.Endereco)
+            @Html.TextBoxFor(model => model.Endereco)
+        </p>
+        <p>
+            @Html.LabelFor(model => model.Empresa)
+            @Html.TextBoxFor(model => model.Empresa)
+        </p>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <button type="button" id="atualizarContato" codigo="@Model.IdContato">Atualizar</button>
+        </div>
+        <div class="col-md-6">
+            <button type="button" id="excluirContato" codigo="@Model.IdContato">Excluir</button>
+        </div>
+    </div>
+</form>
+<script>
+    $(document).ready(function () {
+        $("#atualizarContato").click(function () {
+
+            var obj = {
+                IdContato: $(this).attr('codigo'),
+                Nome: $("#Nome").val(),
+                EmailPessoal: $("#EmailPessoal").val(),
+                EmailTrabalho: $("#EmailTrabalho").val(),
+                TelefonePessoal: $("#TelefonePessoal").val(),
+                TelefoneTrabalho: $("#TelefoneTrabalho").val(),
+                Endereco: $("#Endereco").val(),
+                Empresa: $("#Empresa").val(),
+            }
+
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("AtualizarContato", "Home")',
+                data: { alterarContato: obj },
+                cache: false,
+                success: function (data) {
+                    if (data.codigo == '0') {
+                        alert(data.conteudo);
+                    }
+
+                    $("#listarContato").trigger('click');
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+
+                }
+            });
+        });
+
+        $("#excluirContato").click(function () {
+
+            var confirm = window.confirm("Tem certeza que deseja excluir este contato?");
+
+            if (confirm == true)
+            {
+                var obj = {
+                    IdContato: $(this).attr('codigo'),
+                }
+
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("ExcluirContato", "Home")',
+                    data: { alterarContato: obj },
+                    cache: false,
+                    success: function (data) {
+                        if (data.codigo == '0') {
+                            alert(data.conteudo);
+                        }
+
+                        $("#listarContato").trigger('click');
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+
+                    }
+                });
+            }
+        });
+    });
+
+</script>

@@ -1,0 +1,13 @@
+C:\Documentos\POCs\AgendaTelefonica\ContatoFacade\bin\Debug\ContatoFacade.dll
+C:\Documentos\POCs\AgendaTelefonica\ContatoFacade\bin\Debug\ContatoFacade.pdb
+C:\Documentos\POCs\AgendaTelefonica\ContatoFacade\bin\Debug\Agenda.Facade.Business.dll
+C:\Documentos\POCs\AgendaTelefonica\ContatoFacade\bin\Debug\Agenda.Facade.Helper.dll
+C:\Documentos\POCs\AgendaTelefonica\ContatoFacade\bin\Debug\Agenda.Model.dll
+C:\Documentos\POCs\AgendaTelefonica\ContatoFacade\bin\Debug\Newtonsoft.Json.dll
+C:\Documentos\POCs\AgendaTelefonica\ContatoFacade\bin\Debug\Agenda.Facade.Business.pdb
+C:\Documentos\POCs\AgendaTelefonica\ContatoFacade\bin\Debug\Agenda.Facade.Helper.pdb
+C:\Documentos\POCs\AgendaTelefonica\ContatoFacade\bin\Debug\Agenda.Model.pdb
+C:\Documentos\POCs\AgendaTelefonica\ContatoFacade\bin\Debug\Newtonsoft.Json.xml
+C:\Documentos\POCs\AgendaTelefonica\ContatoFacade\obj\Debug\Agenda.Facade.csprojResolveAssemblyReference.cache
+C:\Documentos\POCs\AgendaTelefonica\ContatoFacade\obj\Debug\ContatoFacade.dll
+C:\Documentos\POCs\AgendaTelefonica\ContatoFacade\obj\Debug\ContatoFacade.pdb
