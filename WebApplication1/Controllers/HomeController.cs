@@ -63,9 +63,18 @@ namespace WebApplication1.Controllers
                     }
                 }
 
-                var id = listaContatos.Max(x => x.IdContato);
 
-                novoContato.IdContato = id + 1;
+                long id = 0;
+                if (listaContatos.Count() == 0)
+                {
+                    id = 1;
+                }
+                else
+                {
+                    id = listaContatos.Max(x => x.IdContato) + 1;
+                }
+
+                novoContato.IdContato = id;
 
                 listaContatos.Add(novoContato);
 
@@ -75,6 +84,11 @@ namespace WebApplication1.Controllers
                 codigoRetorno = "0";
                 conteudoRetorno = "Contato adicionado com Sucesso!";
 
+            }
+            else
+            {
+                codigoRetorno = "-1";
+                conteudoRetorno = "Favor verificar se Nome e/ou Telefone foram preenchidos!";
             }
 
             return Json(new
@@ -129,7 +143,7 @@ namespace WebApplication1.Controllers
                     listaContatos = achados;
                 }
 
-                model.listaContatos = listaContatos.OrderBy(x=>x.Nome).ToList();
+                model.listaContatos = listaContatos.OrderBy(x => x.Nome).ToList();
             }
 
             return PartialView("_partialGridListaContatos", model);

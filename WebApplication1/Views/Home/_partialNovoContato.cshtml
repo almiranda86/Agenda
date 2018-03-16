@@ -69,17 +69,14 @@
                 data: { novoContato: obj },
                 cache: false,
                 success: function (data) {
-                    if (data.codigo == '0') {
-                        alert(data.conteudo);
-                    }
+
+                    alert(data.conteudo);
 
                     $("#listarContato").trigger('click');
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
 
                 }
-
-
             });
         });
 
